@@ -66,4 +66,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2673c7e012e37f47858afbef36f1ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scientistPrefab: {fileID: 0}
+  scientistPrefab: {fileID: 8581998197713233454}

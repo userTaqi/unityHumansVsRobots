@@ -28,9 +28,5 @@ public class powerCellsPerSecond : MonoBehaviour
 
         pointsText.text = (int)pointsAmount + " Power Cells";
         pointsAmount += pointsIncreasedPerSecond * Time.deltaTime;
-
-        Debug.Log(pointsAmount);
-
-        
     }
 }
