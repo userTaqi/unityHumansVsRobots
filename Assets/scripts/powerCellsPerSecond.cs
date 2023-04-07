@@ -29,4 +29,8 @@ public class powerCellsPerSecond : MonoBehaviour
         pointsText.text = (int)pointsAmount + " Power Cells";
         pointsAmount += pointsIncreasedPerSecond * Time.deltaTime;
     }
+
+    /*void ObjectPrice(){
+        pointsAmount -= GameObject.price;
+    }*/
 }

@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private Color _baseColor, _offsetColor;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _highlight;
-    [SerializeField] private GameObject _objectPrefab;
+    [SerializeField] public GameObject _objectPrefab;
     private GameObject _objectOnTile;
     private bool _canSpawnObject = false;
 
@@ -45,11 +45,18 @@ public class Tile : MonoBehaviour
     {
         if (IsEmpty() && _canSpawnObject)
         {
+            if (_objectPrefab == null)
+            {
+                Debug.LogWarning("Object prefab is null!");
+                return;
+            }
+
             var newObject = Instantiate(_objectPrefab, transform.position, Quaternion.identity);
             _objectOnTile = newObject;
-            
+
             var tileObjects = FindObjectsOfType<Tile>();
-            foreach (var tileObject in tileObjects) {
+            foreach (var tileObject in tileObjects)
+            {
                 tileObject.SetCanSpawnObject(false);
             }
         }

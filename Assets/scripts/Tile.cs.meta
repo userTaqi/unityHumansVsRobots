@@ -6,7 +6,7 @@ MonoImporter:
   defaultReferences:
   - _renderer: {instanceID: 0}
   - _highlight: {instanceID: 0}
-  - _objectPrefab: {fileID: 8581998197713233454, guid: e209c7d94258b2446bf68164abb6385e, type: 3}
+  - _objectPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
