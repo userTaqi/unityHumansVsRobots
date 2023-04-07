@@ -6,15 +6,17 @@ public class GameManager : MonoBehaviour
 {
     public GameObject scientistPrefab; // Reference to the scientist prefab
 
+    // Enable the ability to spawn objects on all the tiles
     public void EnableSpawn()
     {
-        var tileObjects = FindObjectsOfType<Tile>();
+        var tileObjects = FindObjectsOfType<Tile>(); // Find all the Tile objects in the scene
         foreach (var tileObject in tileObjects)
         {
-            tileObject.SetCanSpawnObject(true);
+            tileObject.SetCanSpawnObject(true); // Set the CanSpawnObject flag to true on each tile
         }
     }
 
+    // Set the object prefab to the scientist prefab for all tiles
     public void SetObjectPrefabToScientist()
     {
         // Load the scientist prefab dynamically from Resources folder
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (var tileObject in FindObjectsOfType<Tile>())
             {
-                tileObject._objectPrefab = scientistPrefab;
+                tileObject._objectPrefab = scientistPrefab; // Set the object prefab to the scientist prefab on each tile
             }
         }
     }
