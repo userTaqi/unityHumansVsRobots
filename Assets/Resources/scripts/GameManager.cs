@@ -16,6 +16,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void EnableRemove()
+    {
+        var tileObjects = FindObjectsOfType<Tile>(); // Find all the Tile objects in the scene
+        foreach (var tileObject in tileObjects)
+        {
+            tileObject.SetCanRemoveObject(true); // Set the CanRemoveObject flag to true on each tile
+        }
+    }
+
     // Set the object prefab to the scientist prefab for all tiles
     public void SetObjectPrefabToScientist()
     {

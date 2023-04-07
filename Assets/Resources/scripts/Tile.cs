@@ -15,6 +15,7 @@ public class Tile : MonoBehaviour
     // Private variables that store information about objects currently on the tile
     private GameObject _objectOnTile;
     private bool _canSpawnObject = false;
+    private bool _canRemoveObject = false;
 
     // Method to initialize the tile with a specific color
     public void Init(bool isOffset)
@@ -46,10 +47,22 @@ public class Tile : MonoBehaviour
         return _objectOnTile == null;
     }
 
-    // Method to set whether an object can be spawned on the tile
     public void SetCanSpawnObject(bool canSpawn)
     {
         _canSpawnObject = canSpawn;
+        if (_canSpawnObject && _canRemoveObject)
+        {
+            _canRemoveObject = false;
+        }
+    }
+
+    public void SetCanRemoveObject(bool canRemove)
+    {
+        _canRemoveObject = canRemove;
+        if (_canSpawnObject && _canRemoveObject)
+        {
+            _canSpawnObject = false;
+        }
     }
 
     // Method to spawn an object on the tile, or remove the existing object if one is present
@@ -87,12 +100,16 @@ public class Tile : MonoBehaviour
                 return;
             }
         }
-        else if (!IsEmpty())
+        else if (!IsEmpty() && _canRemoveObject)
         {
-            // Remove the existing object from the tile and allow spawning again
+            // Remove the existing object from the tile
             Destroy(_objectOnTile);
             _objectOnTile = null;
-            SetCanSpawnObject(true);
+            var tileObjects = FindObjectsOfType<Tile>();
+            foreach (var tileObject in tileObjects)
+            {
+                tileObject.SetCanRemoveObject(false);
+            }
         }
     }
 }
