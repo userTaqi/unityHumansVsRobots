@@ -4,38 +4,60 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-   [SerializeField] private Color _baseColor, _offsetColor;
-   [SerializeField] private SpriteRenderer _renderer;
-   [SerializeField] private GameObject _highlight;
-   [SerializeField] private GameObject _objectPrefab;
-   [SerializeField] private GameObject _currentObject;
+    [SerializeField] private Color _baseColor, _offsetColor;
+    [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private GameObject _highlight;
+    [SerializeField] private GameObject _objectPrefab;
+    private GameObject _objectOnTile;
+    private bool _canSpawnObject = false;
 
-   private GameObject _placedObject;
-
-    public void Init(bool isOffset) {
+    public void Init(bool isOffset)
+    {
         _renderer.color = isOffset ? _offsetColor : _baseColor;
     }
 
-    void OnMouseEnter(){
+    public void OnMouseDown()
+    {
+        SpawnObject();
+    }
+
+    private void OnMouseEnter()
+    {
         _highlight.SetActive(true);
     }
 
-    void OnMouseExit(){
+    private void OnMouseExit()
+    {
         _highlight.SetActive(false);
     }
 
-    public bool IsEmpty() {
-        return _placedObject == null;
+    public bool IsEmpty()
+    {
+        return _objectOnTile == null;
     }
 
-    void OnMouseDown() {
-        if (_currentObject != null) {
-            Destroy(_currentObject);
-            _currentObject = null;
-        } else {
-            var spawnedObject = Instantiate(_objectPrefab, transform.position, Quaternion.identity);
-            spawnedObject.name = $"Object on Tile {transform.position}";
-            _currentObject = spawnedObject;
+    public void SetCanSpawnObject(bool canSpawn)
+    {
+        _canSpawnObject = canSpawn;
+    }
+
+    public void SpawnObject()
+    {
+        if (IsEmpty() && _canSpawnObject)
+        {
+            var newObject = Instantiate(_objectPrefab, transform.position, Quaternion.identity);
+            _objectOnTile = newObject;
+            
+            var tileObjects = FindObjectsOfType<Tile>();
+            foreach (var tileObject in tileObjects) {
+                tileObject.SetCanSpawnObject(false);
+            }
+        }
+        else if (!IsEmpty())
+        {
+            Destroy(_objectOnTile);
+            _objectOnTile = null;
+            SetCanSpawnObject(true);
         }
     }
 }
