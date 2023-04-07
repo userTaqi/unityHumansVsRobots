@@ -207,9 +207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6214744841521955448, guid: e209c7d94258b2446bf68164abb6385e, type: 3}
-        m_TargetAssemblyTypeName: spawnerButton, Assembly-CSharp
-        m_MethodName: SpawnIt
+      - m_Target: {fileID: 294092883397854233, guid: 70b679e09ab7b0d4693ce577293aaddf, type: 3}
+        m_TargetAssemblyTypeName: Tile, Assembly-CSharp
+        m_MethodName: SetCardSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
