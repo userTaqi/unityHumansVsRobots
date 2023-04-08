@@ -17,6 +17,9 @@ public class Tile : MonoBehaviour
     private bool _canSpawnObject = false;
     private bool _canRemoveObject = false;
 
+    //variables for diff card prices
+    private float scientistPrice= 15f;
+
     // Method to initialize the tile with a specific color
     public void Init(bool isOffset)
     {
@@ -87,11 +90,11 @@ public class Tile : MonoBehaviour
             }
 
             // Check if the spawned object has the "scientist" tag and the player has enough points
-            if (newObject.CompareTag("scientist") && FindObjectOfType<powerCellsPerSecond>().pointsAmount >= 15f)
+            if (newObject.CompareTag("scientist") && FindObjectOfType<powerCellsPerSecond>().pointsAmount >= scientistPrice)
             {
-                FindObjectOfType<powerCellsPerSecond>().pointsAmount -= 15f;
+                FindObjectOfType<powerCellsPerSecond>().pointsAmount -= scientistPrice;
             }
-            else if (newObject.CompareTag("scientist") && FindObjectOfType<powerCellsPerSecond>().pointsAmount < 15f)
+            else if (newObject.CompareTag("scientist") && FindObjectOfType<powerCellsPerSecond>().pointsAmount < scientistPrice)
             {
                 Debug.Log("Not enough points to spawn the scientist object!");
                 Destroy(newObject);
@@ -100,11 +103,33 @@ public class Tile : MonoBehaviour
                 return;
             }
         }
+        else if (!IsEmpty() && _canSpawnObject){
+            Debug.Log("Tile is occupied");
+            var tileObjects = FindObjectsOfType<Tile>();
+            foreach (var tileObject in tileObjects)
+            {
+                tileObject.SetCanSpawnObject(false);
+            }
+        }
         else if (!IsEmpty() && _canRemoveObject)
         {
             // Remove the existing object from the tile
             Destroy(_objectOnTile);
             _objectOnTile = null;
+
+            // Add half of the points of the removed object back to the pointsAmount variable
+            var powerCellsScript = FindObjectOfType<powerCellsPerSecond>();
+            powerCellsScript.pointsAmount += scientistPrice / 2f;
+
+            var tileObjects = FindObjectsOfType<Tile>();
+            foreach (var tileObject in tileObjects)
+            {
+                tileObject.SetCanRemoveObject(false);
+            }
+        }
+        else if (IsEmpty() && _canRemoveObject)
+        {
+            Debug.Log("Tile is empty");
             var tileObjects = FindObjectsOfType<Tile>();
             foreach (var tileObject in tileObjects)
             {
