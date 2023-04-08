@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject scientistPrefab; // Reference to the scientist prefab
+    public GameObject soldierPrefab;
 
     // Enable the ability to spawn objects on all the tiles
     public void EnableSpawn()
@@ -36,6 +37,20 @@ public class GameManager : MonoBehaviour
             foreach (var tileObject in FindObjectsOfType<Tile>())
             {
                 tileObject._objectPrefab = scientistPrefab; // Set the object prefab to the scientist prefab on each tile
+            }
+        }
+    }
+
+    public void SetObjectPrefabToSoldier()
+    {
+        // Load the scientist prefab dynamically from Resources folder
+        soldierPrefab = Resources.Load<GameObject>("prefabs/soldier");
+
+        if (soldierPrefab != null)
+        {
+            foreach (var tileObject in FindObjectsOfType<Tile>())
+            {
+                tileObject._objectPrefab = soldierPrefab; // Set the object prefab to the scientist prefab on each tile
             }
         }
     }
