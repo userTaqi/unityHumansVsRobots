@@ -33,7 +33,7 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        _cam.transform.position = new Vector3((float)(_width - 1) * cellWidth / 2.0f, (float)(_height - 0.25) * cellHeight / 2.0f, -10); // set the camera position
+        _cam.transform.position = new Vector3((float)(_width - 1) * cellWidth / 2.0f, (float)(_height - 0.50) * cellHeight / 2.0f, -10); // set the camera position
     }
 
 }
