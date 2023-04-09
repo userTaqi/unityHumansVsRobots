@@ -15,14 +15,15 @@ public class GridManager : MonoBehaviour
 
     // Generate the grid of tiles
     void GenerateGrid() {
-        float cellSize = 1.5f; // change this value to adjust the cell size of the grid
+        float cellWidth = 1.5f; // change this value to adjust the cell width of the grid
+        float cellHeight = 1.7f; // change this value to adjust the cell height of the grid
         _tiles = new Tile[_width, _height]; // create the 2D array of tiles
 
         // loop through each cell in the grid and spawn a tile at that position
         for (int x = 0; x < _width; x++) {
             for (int y = 0; y < _height; y++) {
-                var spawnedTile = Instantiate(_tilePrefab, new Vector3(x * cellSize, y * cellSize, 0.0f), Quaternion.identity); // spawn a tile at the current position
-                spawnedTile.transform.localScale = new Vector3(cellSize, cellSize, 1.0f); // set the scale of the tile based on the desired cell size
+                var spawnedTile = Instantiate(_tilePrefab, new Vector3(x * cellWidth, y * cellHeight, 0.0f), Quaternion.identity); // spawn a tile at the current position
+                spawnedTile.transform.localScale = new Vector3(cellWidth, cellHeight, 1.0f); // set the scale of the tile based on the desired cell size
                 spawnedTile.name = $"Tile {x} {y}"; // name the tile for easier debugging
 
                 var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0); // calculate whether the tile should be offset or not
@@ -32,17 +33,8 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        _cam.transform.position = new Vector3((float)(_width - 1) * cellSize / 2.0f, (float)(_height - 1) * cellSize / 2.0f, -10); // set the camera position
+        _cam.transform.position = new Vector3((float)(_width - 1) * cellWidth / 2.0f, (float)(_height - 0.25) * cellHeight / 2.0f, -10); // set the camera position
     }
 
-    // Check whether an object can be placed at a specific tile
-    public bool CanPlaceObjectAt(int x, int y) {
-        if (x < 0 || x >= _width || y < 0 || y >= _height) {
-            return false; // out of bounds, cannot place object
-        }
-
-        var tile = _tiles[x, y];
-        return tile.IsEmpty(); // if the tile is empty, an object can be placed there
-    }
 }
 
