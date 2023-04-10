@@ -29,5 +29,8 @@ public class SoldierShooting : MonoBehaviour
 
         // shoot the bullet to the right
         bullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * bulletSpeed;
+        
+        //destroy prefab after 3 seconds
+        Destroy(bullet, 3);
     }
 }
