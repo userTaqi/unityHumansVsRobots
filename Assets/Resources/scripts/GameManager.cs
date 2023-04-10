@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject scientistPrefab; // Reference to the scientist prefab
-    public GameObject soldierPrefab;
+    private GameObject scientistPrefab; // Reference to the scientist prefab
+    private GameObject soldierPrefab;
 
     // Enable the ability to spawn objects on all the tiles
     public void EnableSpawn()
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Enable the ability to remove objects on all the tiles
     public void EnableRemove()
     {
         var tileObjects = FindObjectsOfType<Tile>(); // Find all the Tile objects in the scene
@@ -41,9 +42,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Set the object prefab to the soldier prefab for all tiles
     public void SetObjectPrefabToSoldier()
     {
-        // Load the scientist prefab dynamically from Resources folder
+        // Load the soldier prefab dynamically from Resources folder
         soldierPrefab = Resources.Load<GameObject>("prefabs/soldier");
 
         if (soldierPrefab != null)

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SoldierShooting : MonoBehaviour
 {
-    public GameObject bulletPrefab;  // the prefab of the bullet to shoot
-    public float bulletSpeed = 10f;  // the speed at which to shoot the bullet
-    public float shootInterval = 1f; // the time between shots
+    [SerializeField] private GameObject bulletPrefab;  // the prefab of the bullet to shoot
+    private float bulletSpeed = 5f;  // the speed at which to shoot the bullet
+    private float shootInterval = 1f; // the time between shots
 
     private float timeSinceLastShot = 0f;
 
