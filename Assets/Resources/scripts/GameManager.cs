@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public void SetObjectPrefabToScientist()
     {
         // Load the scientist prefab dynamically from Resources folder
-        scientistPrefab = Resources.Load<GameObject>("prefabs/scientist");
+        scientistPrefab = Resources.Load<GameObject>("prefabs/allies/scientist");
 
         if (scientistPrefab != null)
         {
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     public void SetObjectPrefabToSoldier()
     {
         // Load the soldier prefab dynamically from Resources folder
-        soldierPrefab = Resources.Load<GameObject>("prefabs/soldier");
+        soldierPrefab = Resources.Load<GameObject>("prefabs/allies/soldier");
 
         if (soldierPrefab != null)
         {
