@@ -30,7 +30,7 @@ public class Tile : MonoBehaviour
     // Method called when the tile is clicked
     public void OnMouseDown()
     {
-        SpawnObject();
+        SpawnObject(_objectPrefab);
     }
 
     // Method called when the mouse enters the tile's area
@@ -70,17 +70,17 @@ public class Tile : MonoBehaviour
     }
 
     // Method to spawn an object on the tile, or remove the existing object if one is present
-    public void SpawnObject()
+    public void SpawnObject(GameObject prefab)
     {
         if (IsEmpty() && _canSpawnObject)
         {
             // Instantiate a new object prefab on the tile
-            if (_objectPrefab == null)
+            if (prefab == null)
             {
                 Debug.LogWarning("Object prefab is null!");
                 return;
             }
-            var newObject = Instantiate(_objectPrefab, transform.position, Quaternion.identity);
+            var newObject = Instantiate(prefab, transform.position, Quaternion.identity);
             _objectOnTile = newObject;
 
             // Disable spawning on all other tiles
@@ -150,4 +150,5 @@ public class Tile : MonoBehaviour
             }
         }
     }
+
 }

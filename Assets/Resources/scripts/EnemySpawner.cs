@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs;
-    public GameObject[] spawnPoints;
+    [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private GameObject[] spawnPoints;
 
     public float spawnInterval = 2f;
-    private int enemyPerWave = 3;
+    private int enemyPerWave = 1;
     public float timeBetweenWaves = 10f;
 
     private int currentWave = 0;
-    private bool isSpawning = false;
 
     void Start()
     {
@@ -21,7 +20,6 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-        isSpawning = true;
         float currentSpawnInterval = spawnInterval;
 
         while (true)

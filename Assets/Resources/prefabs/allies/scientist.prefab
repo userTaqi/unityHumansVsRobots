@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5807228492015573370}
   - component: {fileID: 5807228492015573368}
+  - component: {fileID: 1033408601415540667}
   m_Layer: 0
   m_Name: scientist
   m_TagString: scientist
@@ -53,7 +54,23 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
+--- !u!70 &1033408601415540667
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5807228492015573369}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.08060384, y: -0.0024425983}
+  m_Size: {x: 0.63189745, y: 1.4933934}
+  m_Direction: 0
 --- !u!1 &6379841059581053954
 GameObject:
   m_ObjectHideFlags: 0
