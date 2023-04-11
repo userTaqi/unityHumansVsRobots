@@ -33,16 +33,14 @@ public class EnemySpawner : MonoBehaviour
                 int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
                 GameObject spawnPoint = spawnPoints[randomSpawnPointIndex];
 
-                int strengthLevel = Mathf.FloorToInt(currentWave / 2f); // Increase strength level every 5 waves
-                strengthLevel = Mathf.Clamp(strengthLevel, 0, enemyPrefabs.Length - 1); // Clamp strength level to array bounds
+                int strengthLevel = Mathf.FloorToInt(currentWave / 2f);
+                strengthLevel = Mathf.Clamp(strengthLevel, 0, enemyPrefabs.Length - 1);
 
-                // Create a list of enemy prefabs that can spawn at the current strength level, with the desired spawn rates
                 List<GameObject> availableEnemies = new List<GameObject>();
                 for (int j = 0; j <= strengthLevel; j++)
                 {
                     if (j == 0)
                     {
-                        // Add enemyPrefabs[0] with 70% spawn rate
                         availableEnemies.Add(enemyPrefabs[0]);
                         availableEnemies.Add(enemyPrefabs[0]);
                         availableEnemies.Add(enemyPrefabs[0]);
@@ -54,7 +52,6 @@ public class EnemySpawner : MonoBehaviour
                     }
                     else if (j == 1)
                     {
-                        // Add enemyPrefabs[1] with 30% spawn rate
                         availableEnemies.Add(enemyPrefabs[1]);
                         availableEnemies.Add(enemyPrefabs[1]);
                     }
@@ -64,19 +61,29 @@ public class EnemySpawner : MonoBehaviour
                     }
                 }
 
-                // Randomly select an enemy prefab from the available enemies list
                 GameObject enemyPrefabToSpawn = availableEnemies[Random.Range(0, availableEnemies.Count)];
 
                 GameObject enemy = Instantiate(enemyPrefabToSpawn, spawnPoint.transform.position, spawnPoint.transform.rotation);
-                enemy.GetComponent<Rigidbody2D>().AddForce(-spawnPoint.transform.right * 30f);
+                Rigidbody2D enemyRigidbody = enemy.GetComponent<Rigidbody2D>();
+                float forceMagnitude = enemyPrefabToSpawn == enemyPrefabs[0] ? 30f : 60f;
+                enemyRigidbody.AddForce(-spawnPoint.transform.right * forceMagnitude);
 
+                // Wait for 10 seconds and destroy the enemy
+                StartCoroutine(DestroyEnemy(enemy, 50f));
                 yield return new WaitForSeconds(currentSpawnInterval);
             }
 
             currentWave++;
             enemyPerWave++;
-            currentSpawnInterval *= 0.98f; // Gradually decrease spawn interval by 2% every wave
+            currentSpawnInterval *= 0.98f;
         }
     }
+
+    IEnumerator DestroyEnemy(GameObject enemy, float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(enemy);
+    }
+
 
 }
