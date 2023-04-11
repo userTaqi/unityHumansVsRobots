@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 579228627997434547}
   - component: {fileID: 28646257223188331}
   - component: {fileID: 1739064712944302088}
+  - component: {fileID: 6575097750413258076}
   m_Layer: 0
   m_Name: robot
   m_TagString: Untagged
@@ -71,6 +72,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00000023841858, y: -0.0050697327}
   m_Size: {x: 0.8650279, y: 1.4562845}
   m_Direction: 0
+--- !u!114 &6575097750413258076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933591511953332732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d539133f87b41eb47ac2bc6729c296ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5217579385943335114
 GameObject:
   m_ObjectHideFlags: 0

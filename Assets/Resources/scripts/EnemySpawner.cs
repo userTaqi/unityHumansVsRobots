@@ -66,8 +66,6 @@ public class EnemySpawner : MonoBehaviour
                 float forceMagnitude = enemyPrefabToSpawn == enemyPrefabs[0] ? 30f : 60f;
                 enemyRigidbody.AddForce(-spawnPoint.transform.right * forceMagnitude);
 
-                // Wait for 10 seconds and destroy the enemy
-                StartCoroutine(DestroyEnemy(enemy, 50f));
                 yield return new WaitForSeconds(currentSpawnInterval);
             }
 
@@ -76,12 +74,4 @@ public class EnemySpawner : MonoBehaviour
             currentSpawnInterval *= 0.98f;
         }
     }
-
-    IEnumerator DestroyEnemy(GameObject enemy, float time)
-    {
-        yield return new WaitForSeconds(time);
-        Destroy(enemy);
-    }
-
-
 }
