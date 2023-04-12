@@ -15,8 +15,8 @@ public class GridManager : MonoBehaviour
 
     // Generate the grid of tiles
     void GenerateGrid() {
-        float cellWidth = 1.5f; // change this value to adjust the cell width of the grid
-        float cellHeight = 1.7f; // change this value to adjust the cell height of the grid
+        float cellWidth = 2.1f; // change this value to adjust the cell width of the grid
+        float cellHeight = 1.9f; // change this value to adjust the cell height of the grid
         _tiles = new Tile[_width, _height]; // create the 2D array of tiles
 
         // loop through each cell in the grid and spawn a tile at that position
@@ -33,7 +33,7 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        _cam.transform.position = new Vector3((float)(_width - 1) * cellWidth / 2.0f, (float)(_height - 0.50) * cellHeight / 2.0f, -10); // set the camera position
+        _cam.transform.position = new Vector3((float)(_width - 1) * cellWidth / 2.0f, (float)(_height - 0.1) * cellHeight / 2.0f, -10); // set the camera position
     }
 
 }
