@@ -22,7 +22,7 @@ public class GridManager : MonoBehaviour
         // loop through each cell in the grid and spawn a tile at that position
         for (int x = 0; x < _width; x++) {
             for (int y = 0; y < _height; y++) {
-                var spawnedTile = Instantiate(_tilePrefab, new Vector3(x * cellWidth, y * cellHeight, 0.0f), Quaternion.identity); // spawn a tile at the current position
+                var spawnedTile = Instantiate(_tilePrefab, new Vector3(x * cellWidth, y * cellHeight, -5.0f), Quaternion.identity); // spawn a tile at the current position
                 spawnedTile.transform.localScale = new Vector3(cellWidth, cellHeight, 1.0f); // set the scale of the tile based on the desired cell size
                 spawnedTile.name = $"Tile {x} {y}"; // name the tile for easier debugging
 

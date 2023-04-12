@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7436430301261049812}
   - component: {fileID: 1694352620250247887}
   - component: {fileID: 4255439230766150193}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: soldier
   m_TagString: soldier
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6037045305694146239}
   - component: {fileID: 3728926253273827585}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: zombie characters_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}

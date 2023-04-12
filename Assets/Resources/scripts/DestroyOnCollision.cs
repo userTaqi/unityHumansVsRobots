@@ -10,7 +10,5 @@ public class DestroyOnCollision : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }
 

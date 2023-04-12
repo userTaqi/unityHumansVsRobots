@@ -8,6 +8,8 @@ TagManager:
   - text
   - soldier
   - base
+  - robot
+  - drone
   layers:
   - Default
   - TransparentFX
