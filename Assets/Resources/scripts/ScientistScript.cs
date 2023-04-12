@@ -49,10 +49,6 @@ public class ScientistScript : MonoBehaviour
                 Destroy(gameObject);
                 break;
             }
-            else
-            {
-                Debug.Log("Current health: " + currentHealth);
-            }
         }
     }
 }

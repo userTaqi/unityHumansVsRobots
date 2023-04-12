@@ -80,7 +80,11 @@ public class Tile : MonoBehaviour
                 Debug.LogWarning("Object prefab is null!");
                 return;
             }
-            var newObject = Instantiate(prefab, transform.position, Quaternion.identity);
+            
+            // Set the position of the new object to (x, y, 1.0) to ensure a Z position of 1.0
+            Vector3 newPosition = transform.position;
+            newPosition.z = 1.0f;
+            var newObject = Instantiate(prefab, newPosition, Quaternion.identity);
             _objectOnTile = newObject;
 
             // Disable spawning on all other tiles
@@ -150,5 +154,6 @@ public class Tile : MonoBehaviour
             }
         }
     }
+
 
 }
