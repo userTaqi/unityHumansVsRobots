@@ -46,7 +46,7 @@ public class AllySpawnManager : MonoBehaviour
     public void SetObjectPrefabToSoldier()
     {
         // Load the soldier prefab dynamically from Resources folder
-        soldierPrefab = Resources.Load<GameObject>("prefabs/allies/soldier");
+        soldierPrefab = Resources.Load<GameObject>("prefabs/allies/officer");
 
         if (soldierPrefab != null)
         {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoldierShooting : MonoBehaviour
+public class OfficerShooting : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;  // the prefab of the bullet to shoot
     private float bulletSpeed = 5f;  // the speed at which to shoot the bullet
@@ -30,7 +30,7 @@ public class SoldierShooting : MonoBehaviour
         // shoot the bullet to the right
         bullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * bulletSpeed;
         
-        //destroy prefab after 3 seconds
-        Destroy(bullet, 3);
+        //destroy prefab after 10 seconds
+        Destroy(bullet, 10);
     }
 }

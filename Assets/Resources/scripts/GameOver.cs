@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     ///////////////////////////////////////////////////////GameOver
-    private float baseHealth = 500f;
+    private float baseHealth = 250f;
     [SerializeField] private GameObject gameOverScreen;
 
     void OnCollisionEnter2D(Collision2D enemy){

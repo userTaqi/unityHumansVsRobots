@@ -96,8 +96,9 @@ GameObject:
   - component: {fileID: 7436430301261049812}
   - component: {fileID: 1694352620250247887}
   - component: {fileID: 4255439230766150193}
+  - component: {fileID: 228064961642864630}
   m_Layer: 3
-  m_Name: soldier
+  m_Name: officer
   m_TagString: soldier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,3 +170,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.36298636, y: 0.0000006122843}
   m_Size: {x: 0.71005577, y: 1.3464031}
   m_Direction: 0
+--- !u!114 &228064961642864630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254092565005795535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d318efb5850f1b940ab6216ce6b7ecd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 70
+  currentHealth: 0
+  damageInterval: 3
+  robotDamage: 10

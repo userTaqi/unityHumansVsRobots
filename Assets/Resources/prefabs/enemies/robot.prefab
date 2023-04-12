@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1739064712944302088}
   - component: {fileID: -5165605262513189425}
   - component: {fileID: 5569611018915927248}
+  - component: {fileID: 6667716184295723378}
   m_Layer: 0
   m_Name: robot
   m_TagString: robot
@@ -98,6 +99,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2933591511953332732}
+--- !u!114 &6667716184295723378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933591511953332732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e57726dc5f97004c849da4a44306e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
 --- !u!1 &5217579385943335114
 GameObject:
   m_ObjectHideFlags: 0
