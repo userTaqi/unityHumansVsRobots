@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5807228492015573370}
   - component: {fileID: 5807228492015573368}
   - component: {fileID: 1033408601415540667}
+  - component: {fileID: 4222651220178329426}
   m_Layer: 0
   m_Name: scientist
   m_TagString: scientist
@@ -155,3 +156,16 @@ CapsuleCollider2D:
   m_Offset: {x: -0.08060384, y: -0.0024425983}
   m_Size: {x: 0.63189745, y: 1.4933934}
   m_Direction: 0
+--- !u!114 &4222651220178329426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5807228492015573369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4dc0cf5e8f65384b8edc9fd8b3b7f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allyPrefab: {fileID: 5807228492015573369}

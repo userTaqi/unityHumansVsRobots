@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class AllySpawnManager : MonoBehaviour
 {
     private GameObject scientistPrefab; // Reference to the scientist prefab
     private GameObject soldierPrefab;
