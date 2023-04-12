@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D enemy){
         if (enemy.gameObject.CompareTag("robot")){
-            baseHealth -= 250f;
+            baseHealth -= 15f;
         }
         else if (enemy.gameObject.CompareTag("drone")){
             baseHealth -= 20f;
@@ -20,9 +20,8 @@ public class GameOver : MonoBehaviour
     void Update(){
         if (baseHealth == 0){
         BaseDied();
+        }
     }
-    }
-    
 
     public void BaseDied(){
         gameOverScreen.SetActive(true);
