@@ -73,11 +73,11 @@ public class EnemySpawner : MonoBehaviour
 
                     if (enemyPrefabToSpawn == enemyPrefabs[0]) 
                     {
-                        enemyRigidbody.AddForce(-spawnPoint.transform.right * (45f + currentWave * 5f));
+                        enemyRigidbody.AddForce(-spawnPoint.transform.right * (40f + currentWave * 5f));
                     }
                     else if (enemyPrefabToSpawn == enemyPrefabs[1]) 
                     {
-                        enemyRigidbody.AddForce(-spawnPoint.transform.right * (75f + currentWave * 5f));
+                        enemyRigidbody.AddForce(-spawnPoint.transform.right * (65f + currentWave * 5f));
                     }
                     else if (enemyPrefabToSpawn == enemyPrefabs[2]) 
                     {
@@ -90,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
 
             currentWave++;
             enemyPerWave+=2;
-            currentSpawnInterval *= 0.94f;
+            currentSpawnInterval *= 0.80f;
         }
     }
 }

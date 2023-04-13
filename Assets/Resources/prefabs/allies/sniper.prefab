@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4850751351996025765}
   - component: {fileID: 3109193316160091926}
   - component: {fileID: 8539977272168557372}
+  - component: {fileID: 8003715217811534424}
+  - component: {fileID: 4605534204193025126}
   m_Layer: 0
   m_Name: sniper
   m_TagString: sniper
@@ -64,6 +66,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script: {fileID: 0}
   bulletPrefab: {fileID: 8462706498908674209, guid: 743464a4e084a2346b626254305fc822, type: 3}
+--- !u!50 &8003715217811534424
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734146403496721572}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &4605534204193025126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734146403496721572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de902c00c2f1ee04bbd74c070ef07020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  currentHealth: 0
+  damageInterval: 2
+  robotDamage: 20
 --- !u!1 &8072358595846967570
 GameObject:
   m_ObjectHideFlags: 0

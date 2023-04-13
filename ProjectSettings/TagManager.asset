@@ -16,6 +16,8 @@ TagManager:
   - sniperBullet
   - spikes
   - robotDog
+  - gridManager
+  - tile
   layers:
   - Default
   - TransparentFX
