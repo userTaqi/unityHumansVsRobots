@@ -9,9 +9,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private GameObject[] spawnPoints;
 
-    private float spawnInterval = 10f;
-    private int enemyPerWave = 2;
-    private float timeBetweenWaves = 15f;
+    private float spawnInterval = 2f;
+    private int enemyPerWave = 1;
+    private float timeBetweenWaves = 25f;
 
     private int currentWave = 0;
 
@@ -41,13 +41,13 @@ public class EnemySpawner : MonoBehaviour
                 {
                     if (j == 0)
                     {
-                        availableEnemies.Add(enemyPrefabs[0]);
-                        availableEnemies.Add(enemyPrefabs[0]);
-                        availableEnemies.Add(enemyPrefabs[0]);
-                        availableEnemies.Add(enemyPrefabs[0]);
-                        availableEnemies.Add(enemyPrefabs[0]);
-                        availableEnemies.Add(enemyPrefabs[0]);
-                        availableEnemies.Add(enemyPrefabs[0]);
+                        availableEnemies.Add(enemyPrefabs[0]);	
+                        availableEnemies.Add(enemyPrefabs[0]);	
+                        availableEnemies.Add(enemyPrefabs[0]);	
+                        availableEnemies.Add(enemyPrefabs[0]);	
+                        availableEnemies.Add(enemyPrefabs[0]);	
+                        availableEnemies.Add(enemyPrefabs[0]);	
+                        availableEnemies.Add(enemyPrefabs[0]);	
                         availableEnemies.Add(enemyPrefabs[0]);
                     }
                     else if (j == 1)
@@ -55,6 +55,7 @@ public class EnemySpawner : MonoBehaviour
                         availableEnemies.Add(enemyPrefabs[1]);
                         availableEnemies.Add(enemyPrefabs[1]);
                     }
+
                     else
                     {
                         availableEnemies.Add(enemyPrefabs[j]);
@@ -74,7 +75,7 @@ public class EnemySpawner : MonoBehaviour
             }
 
             currentWave++;
-            enemyPerWave++;
+            enemyPerWave+=2;
             currentSpawnInterval *= 0.98f;
         }
     }

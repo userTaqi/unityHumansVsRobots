@@ -25,7 +25,7 @@ public class powerCellsPerSecond : MonoBehaviour
         pointsText = GameObject.FindGameObjectWithTag("text").GetComponent<Text>();
 
         // Set the initial points amount to 15
-        pointsAmount = 20f;
+        pointsAmount = 500f;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class powerCellsPerSecond : MonoBehaviour
             getCount = GameObject.FindGameObjectsWithTag("scientist");
 
             // Set the points increased per second to the number of scientist game objects found
-            pointsIncreasedPerSecond = getCount.Length * 0.8f;
+            pointsIncreasedPerSecond = getCount.Length;
 
             // Update the UI text to show the current points amount as an integer followed by "Power Cells"
             pointsText.text = (int)pointsAmount + " Power Cells";

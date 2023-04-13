@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4850751351996025765}
   - component: {fileID: 3109193316160091926}
+  - component: {fileID: 8539977272168557372}
   m_Layer: 0
   m_Name: sniper
-  m_TagString: Untagged
+  m_TagString: sniper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +50,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.3101625, y: 0.009398737}
   m_Size: {x: 1.2067794, y: 0.5676578}
   m_Direction: 1
+--- !u!114 &8539977272168557372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734146403496721572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602b8da79b552d74ea49cf397bd2d5d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script: {fileID: 0}
+  bulletPrefab: {fileID: 8462706498908674209, guid: 743464a4e084a2346b626254305fc822, type: 3}
 --- !u!1 &8072358595846967570
 GameObject:
   m_ObjectHideFlags: 0

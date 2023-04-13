@@ -18,9 +18,10 @@ public class Tile : MonoBehaviour
     private bool _canRemoveObject = false;
 
     //variables for diff card prices
-    private float scientistPrice= 20f;
-    private float soldierPrice= 15f;
-    private float wallPrice= 50f;
+    private float scientistPrice = 35f;
+    private float soldierPrice= 20f;
+    private float wallPrice= 15f;
+     private float sniperPrice= 20f;
 
     // Method to initialize the tile with a specific color
     public void Init(bool isOffset)
@@ -129,6 +130,18 @@ public class Tile : MonoBehaviour
             else if (newObject.CompareTag("wall") && FindObjectOfType<powerCellsPerSecond>().pointsAmount < wallPrice)
             {
                 Debug.Log("Not enough points to spawn the wall object!");
+                Destroy(newObject);
+                _objectOnTile = null;
+                SetCanSpawnObject(true);
+                return;
+            }
+            else if (newObject.CompareTag("sniper") && FindObjectOfType<powerCellsPerSecond>().pointsAmount >= sniperPrice)
+            {
+                FindObjectOfType<powerCellsPerSecond>().pointsAmount -= sniperPrice;
+            }
+            else if (newObject.CompareTag("sniper") && FindObjectOfType<powerCellsPerSecond>().pointsAmount < sniperPrice)
+            {
+                Debug.Log("Not enough points to spawn the sniper object!");
                 Destroy(newObject);
                 _objectOnTile = null;
                 SetCanSpawnObject(true);

@@ -11,6 +11,9 @@ TagManager:
   - robot
   - drone
   - bullet
+  - wall
+  - sniper
+  - sniperBullet
   layers:
   - Default
   - TransparentFX
