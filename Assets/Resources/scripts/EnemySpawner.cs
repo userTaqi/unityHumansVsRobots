@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+
+    [SerializeField] GameOver script;
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private GameObject[] spawnPoints;
 
-    public float spawnInterval = 2f;
-    private int enemyPerWave = 1;
-    public float timeBetweenWaves = 10f;
+    private float spawnInterval = 10f;
+    private int enemyPerWave = 2;
+    private float timeBetweenWaves = 15f;
 
     private int currentWave = 0;
 
@@ -60,11 +62,13 @@ public class EnemySpawner : MonoBehaviour
                 }
 
                 GameObject enemyPrefabToSpawn = availableEnemies[Random.Range(0, availableEnemies.Count)];
-
+                
+                if(script.gameAlive){
                 GameObject enemy = Instantiate(enemyPrefabToSpawn, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 Rigidbody2D enemyRigidbody = enemy.GetComponent<Rigidbody2D>();
                 float forceMagnitude = enemyPrefabToSpawn == enemyPrefabs[0] ? 40f : 70f;
                 enemyRigidbody.AddForce(-spawnPoint.transform.right * forceMagnitude);
+                }
 
                 yield return new WaitForSeconds(currentSpawnInterval);
             }

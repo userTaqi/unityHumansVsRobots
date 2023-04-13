@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class powerCellsPerSecond : MonoBehaviour
 {
+    [SerializeField] GameOver script;
     // Public variable for the UI text that displays the points amount
     public Text pointsText;
 
@@ -24,23 +25,26 @@ public class powerCellsPerSecond : MonoBehaviour
         pointsText = GameObject.FindGameObjectWithTag("text").GetComponent<Text>();
 
         // Set the initial points amount to 15
-        pointsAmount = 15f;
+        pointsAmount = 20f;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        // Find all game objects with the "scientist" tag
-        getCount = GameObject.FindGameObjectsWithTag("scientist");
+    {   
+        if (script.gameAlive){
+            // Find all game objects with the "scientist" tag
+            getCount = GameObject.FindGameObjectsWithTag("scientist");
 
-        // Set the points increased per second to the number of scientist game objects found
-        pointsIncreasedPerSecond = getCount.Length;
+            // Set the points increased per second to the number of scientist game objects found
+            pointsIncreasedPerSecond = getCount.Length * 0.8f;
 
-        // Update the UI text to show the current points amount as an integer followed by "Power Cells"
-        pointsText.text = (int)pointsAmount + " Power Cells";
+            // Update the UI text to show the current points amount as an integer followed by "Power Cells"
+            pointsText.text = (int)pointsAmount + " Power Cells";
 
-        // Increase the points amount by the points increased per second multiplied by the time since the last frame
-        pointsAmount += pointsIncreasedPerSecond * Time.deltaTime;
+            // Increase the points amount by the points increased per second multiplied by the time since the last frame
+            pointsAmount += pointsIncreasedPerSecond * Time.deltaTime;
+        }
+        
     }
 
     /*

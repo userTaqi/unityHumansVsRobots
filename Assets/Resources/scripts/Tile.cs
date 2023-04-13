@@ -18,7 +18,7 @@ public class Tile : MonoBehaviour
     private bool _canRemoveObject = false;
 
     //variables for diff card prices
-    private float scientistPrice= 15f;
+    private float scientistPrice= 20f;
     private float soldierPrice= 15f;
 
     // Method to initialize the tile with a specific color
@@ -32,7 +32,8 @@ public class Tile : MonoBehaviour
     {
         SpawnObject(_objectPrefab);
     }
-
+    
+    /*
     // Method called when the mouse enters the tile's area
     private void OnMouseEnter()
     {
@@ -44,6 +45,7 @@ public class Tile : MonoBehaviour
     {
         _highlight.SetActive(false);
     }
+    */
 
     // Method to check if there is an object on the tile
     public bool IsEmpty()

@@ -2628,6 +2628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 513650536}
+  gameAlive: 1
 --- !u!1 &840902968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2791,6 +2792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca3b5dbb53671b4481042004d9a7e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  script: {fileID: 837380498}
   enemyPrefabs:
   - {fileID: 2933591511953332732, guid: aa95d82a240ff7a4883999881e56d380, type: 3}
   - {fileID: 6590818588662206804, guid: cf43d7029e694ce4f982b6cd23967915, type: 3}
@@ -3371,6 +3373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e7b5888d92cee4c9f4416e3064be95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  script: {fileID: 837380498}
   pointsText: {fileID: 0}
   pointsAmount: 0
   pointsIncreasedPerSecond: 0

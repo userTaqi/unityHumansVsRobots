@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RobotScript : MonoBehaviour
 {
-    public int startingHealth = 100; // Starting health of the prefab
+    private int startingHealth = 100; // Starting health of the prefab
     private int currentHealth; // Current health of the prefab
 
     private int bulletDamage = 10;

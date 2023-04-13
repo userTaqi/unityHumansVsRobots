@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class OfficerShooting : MonoBehaviour
 {
+    [SerializeField] GameOver script;
     [SerializeField] private GameObject bulletPrefab;  // the prefab of the bullet to shoot
-    private float bulletSpeed = 5f;  // the speed at which to shoot the bullet
-    private float shootInterval = 1f; // the time between shots
+    private float bulletSpeed = 4f;  // the speed at which to shoot the bullet
+    private float shootInterval = 2f; // the time between shots
 
     private float timeSinceLastShot = 0f;
+
+    private void Start()
+{
+    script = GameObject.FindWithTag("base").GetComponent<GameOver>();
+}
+
 
     private void Update()
     {
         timeSinceLastShot += Time.deltaTime;
 
         // check if it's time to shoot again
-        if (timeSinceLastShot >= shootInterval)
+        if (timeSinceLastShot >= shootInterval && script.gameAlive)
         {
             Shoot();
             timeSinceLastShot = 0f;
