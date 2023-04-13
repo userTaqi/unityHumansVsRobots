@@ -7,7 +7,7 @@ public class DroneScript : MonoBehaviour
     private int startingHealth = 100; // Starting health of the prefab
     private int currentHealth; // Current health of the prefab
 
-    private int bulletDamage = 15;
+    private int bulletDamage = 20;
 
     private void Start()
     {

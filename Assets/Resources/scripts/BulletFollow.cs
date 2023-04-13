@@ -6,7 +6,7 @@ public class BulletFollow : MonoBehaviour
 {
     [SerializeField] GameOver script;
     [SerializeField] private GameObject bulletPrefab;  // the prefab of the bullet to shoot
-    private float bulletSpeed = 30f;  // the speed at which to shoot the bullet
+    private float bulletSpeed = 50f;  // the speed at which to shoot the bullet
     private float shootInterval = 0.5f; // the time between shots
 
     private float timeSinceLastShot = 0f;

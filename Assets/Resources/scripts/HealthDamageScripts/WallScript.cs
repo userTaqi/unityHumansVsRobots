@@ -6,8 +6,8 @@ public class WallScript : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-    public float damageInterval = 3f;
-    public int robotDamage = 10;
+    public float damageInterval = 2f;
+    public int robotDamage = 20;
 
     private float timeSinceLastDamage;
     private bool isColliding = false;

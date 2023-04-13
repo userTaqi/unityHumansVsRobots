@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     ///////////////////////////////////////////////////////GameOver
-    private float baseHealth = 250;
+    private float baseHealth = 50;
     [SerializeField] private GameObject gameOverScreen;
     public bool gameAlive = true;
 

@@ -67,7 +67,7 @@ public class EnemySpawner : MonoBehaviour
                 if(script.gameAlive){
                 GameObject enemy = Instantiate(enemyPrefabToSpawn, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 Rigidbody2D enemyRigidbody = enemy.GetComponent<Rigidbody2D>();
-                float forceMagnitude = enemyPrefabToSpawn == enemyPrefabs[0] ? 40f : 70f;
+                float forceMagnitude = enemyPrefabToSpawn == enemyPrefabs[0] ? 45f : 75f;
                 enemyRigidbody.AddForce(-spawnPoint.transform.right * forceMagnitude);
                 }
 

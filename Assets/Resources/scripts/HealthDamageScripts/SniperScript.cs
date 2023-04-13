@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScientistScript : MonoBehaviour
+public class SniperScript : MonoBehaviour
 {
-    public int maxHealth = 20;
+    public int maxHealth = 30;
     public int currentHealth;
     public float damageInterval = 2f;
     public int robotDamage = 20;

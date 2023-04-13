@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3576953236133098943}
   - component: {fileID: 3528572920381134478}
   - component: {fileID: 3935480215866622900}
-  - component: {fileID: 8829095431546854472}
+  - component: {fileID: -8781830495757371892}
   m_Layer: 0
   m_Name: sprites_4
   m_TagString: sniperBullet
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
---- !u!50 &8829095431546854472
+--- !u!50 &-8781830495757371892
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

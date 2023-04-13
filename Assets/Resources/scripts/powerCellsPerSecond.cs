@@ -25,7 +25,7 @@ public class powerCellsPerSecond : MonoBehaviour
         pointsText = GameObject.FindGameObjectWithTag("text").GetComponent<Text>();
 
         // Set the initial points amount to 15
-        pointsAmount = 500f;
+        pointsAmount = 50f;
     }
 
     // Update is called once per frame

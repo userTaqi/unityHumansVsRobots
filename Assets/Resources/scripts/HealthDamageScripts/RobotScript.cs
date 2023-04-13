@@ -6,8 +6,11 @@ public class RobotScript : MonoBehaviour
 {
     private int startingHealth = 100; // Starting health of the prefab
     private int currentHealth; // Current health of the prefab
-
     private int bulletDamage = 10;
+    private int spikesDamage = 5;
+
+    private float spikeTimer = 0f;
+    private float spikeInterval = 2f; // Spike damage interval in seconds
 
     private void Start()
     {
@@ -19,6 +22,20 @@ public class RobotScript : MonoBehaviour
         if (collision.CompareTag("bullet"))
         {
             TakeDamage(bulletDamage); // You can change this value to adjust how much damage is dealt
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("spikes"))
+        {
+            // Increment the timer and check if it's time to take spike damage again
+            spikeTimer += Time.deltaTime;
+            if (spikeTimer >= spikeInterval)
+            {
+                TakeDamage(spikesDamage);
+                spikeTimer = 0f; // Reset the timer
+            }
         }
     }
 
