@@ -43,8 +43,8 @@ public class BulletFollow : MonoBehaviour
             }
         }
 
-        // instantiate the bullet prefab
-        GameObject bullet = Instantiate(bulletPrefab, transform.position + Vector3.up, Quaternion.identity);
+        // instantiate the bullet prefab with a Y-axis offset
+        GameObject bullet = Instantiate(bulletPrefab, transform.position + new Vector3(0f, -0.05f, 0f), Quaternion.identity);
 
         // shoot the bullet to follow the closest drone
         if (closestDrone != null)
@@ -60,4 +60,5 @@ public class BulletFollow : MonoBehaviour
         //destroy prefab after 10 seconds
         Destroy(bullet, 10);
     }
+
 }

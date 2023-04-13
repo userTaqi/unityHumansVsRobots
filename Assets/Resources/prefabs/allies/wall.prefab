@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5996108585449519694}
   - component: {fileID: 2777044812155049711}
   - component: {fileID: 6607302011299844302}
+  - component: {fileID: 8408473239663220125}
   m_Layer: 0
   m_Name: wall
   m_TagString: wall
@@ -165,3 +166,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &8408473239663220125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581646416829875295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489dfefb38941c84f984401390147d36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  damageInterval: 2
+  robotDamage: 20

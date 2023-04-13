@@ -54,6 +54,8 @@ public class EnemySpawner : MonoBehaviour
                     {
                         availableEnemies.Add(enemyPrefabs[1]);
                         availableEnemies.Add(enemyPrefabs[1]);
+                        availableEnemies.Add(enemyPrefabs[2]); // add the new prefab here
+                        availableEnemies.Add(enemyPrefabs[2]);
                     }
 
                     else
@@ -65,10 +67,22 @@ public class EnemySpawner : MonoBehaviour
                 GameObject enemyPrefabToSpawn = availableEnemies[Random.Range(0, availableEnemies.Count)];
                 
                 if(script.gameAlive){
-                GameObject enemy = Instantiate(enemyPrefabToSpawn, spawnPoint.transform.position, spawnPoint.transform.rotation);
-                Rigidbody2D enemyRigidbody = enemy.GetComponent<Rigidbody2D>();
-                float forceMagnitude = enemyPrefabToSpawn == enemyPrefabs[0] ? 45f : 75f;
-                enemyRigidbody.AddForce(-spawnPoint.transform.right * forceMagnitude);
+                    GameObject enemy = Instantiate(enemyPrefabToSpawn, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                    Rigidbody2D enemyRigidbody = enemy.GetComponent<Rigidbody2D>();
+                    //float forceMagnitude = enemyPrefabToSpawn == enemyPrefabs[0] ? 45f : 75f;
+
+                    if (enemyPrefabToSpawn == enemyPrefabs[0]) 
+                    {
+                        enemyRigidbody.AddForce(-spawnPoint.transform.right * (45f + currentWave * 5f));
+                    }
+                    else if (enemyPrefabToSpawn == enemyPrefabs[1]) 
+                    {
+                        enemyRigidbody.AddForce(-spawnPoint.transform.right * (75f + currentWave * 5f));
+                    }
+                    else if (enemyPrefabToSpawn == enemyPrefabs[2]) 
+                    {
+                        enemyRigidbody.AddForce(-spawnPoint.transform.right * (90f + currentWave * 5f));
+                    }
                 }
 
                 yield return new WaitForSeconds(currentSpawnInterval);
@@ -76,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
 
             currentWave++;
             enemyPerWave+=2;
-            currentSpawnInterval *= 0.98f;
+            currentSpawnInterval *= 0.94f;
         }
     }
 }

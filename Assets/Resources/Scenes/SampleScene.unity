@@ -2945,6 +2945,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 2933591511953332732, guid: aa95d82a240ff7a4883999881e56d380, type: 3}
   - {fileID: 6590818588662206804, guid: cf43d7029e694ce4f982b6cd23967915, type: 3}
+  - {fileID: 273055298199490961, guid: c5e5e6b7e31d08d44bda0d1789bd0df5, type: 3}
   spawnPoints:
   - {fileID: 739734812}
   - {fileID: 732195063}

@@ -25,6 +25,10 @@ public class SniperScript : MonoBehaviour
             isColliding = true;
             damageCoroutine = StartCoroutine(TakeDamage());
         }
+        else if (collision.gameObject.CompareTag("robotDog"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)

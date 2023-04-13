@@ -15,6 +15,7 @@ TagManager:
   - sniper
   - sniperBullet
   - spikes
+  - robotDog
   layers:
   - Default
   - TransparentFX
