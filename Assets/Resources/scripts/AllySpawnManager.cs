@@ -6,6 +6,7 @@ public class AllySpawnManager : MonoBehaviour
 {
     private GameObject scientistPrefab; // Reference to the scientist prefab
     private GameObject soldierPrefab;
+    private GameObject wallPrefab;
 
     // Enable the ability to spawn objects on all the tiles
     public void EnableSpawn()
@@ -53,6 +54,20 @@ public class AllySpawnManager : MonoBehaviour
             foreach (var tileObject in FindObjectsOfType<Tile>())
             {
                 tileObject._objectPrefab = soldierPrefab; // Set the object prefab to the scientist prefab on each tile
+            }
+        }
+    }
+
+    public void SetObjectPrefabToWall()
+    {
+        // Load the soldier prefab dynamically from Resources folder
+        wallPrefab = Resources.Load<GameObject>("prefabs/allies/wall");
+
+        if (wallPrefab != null)
+        {
+            foreach (var tileObject in FindObjectsOfType<Tile>())
+            {
+                tileObject._objectPrefab = wallPrefab; // Set the object prefab to the scientist prefab on each tile
             }
         }
     }

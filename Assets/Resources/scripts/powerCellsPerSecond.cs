@@ -46,11 +46,4 @@ public class powerCellsPerSecond : MonoBehaviour
         }
         
     }
-
-    /*
-    // TODO: This method is not currently used in the code
-    void ObjectPrice(){
-        pointsAmount -= GameObject.price;
-    }
-    */
 }

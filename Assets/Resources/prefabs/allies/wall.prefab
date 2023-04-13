@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5996108585449519694}
   - component: {fileID: 7512804354745770602}
   - component: {fileID: 2777044812155049711}
+  - component: {fileID: 6607302011299844302}
   m_Layer: 0
   m_Name: wall
   m_TagString: Untagged
@@ -183,7 +184,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.031153679, y: -0.3714459}
+  m_Offset: {x: -0.031153679, y: -0.115195036}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -194,5 +195,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4936638, y: 0.8705926}
+  m_Size: {x: 1.4936638, y: 1.3830943}
   m_EdgeRadius: 0
+--- !u!50 &6607302011299844302
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581646416829875295}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
