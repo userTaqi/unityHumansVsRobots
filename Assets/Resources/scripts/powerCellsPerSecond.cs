@@ -39,7 +39,7 @@ public class powerCellsPerSecond : MonoBehaviour
             pointsIncreasedPerSecond = getCount.Length;
 
             // Update the UI text to show the current points amount as an integer followed by "Power Cells"
-            pointsText.text = (int)pointsAmount + " Power Cells";
+            pointsText.text = (int)pointsAmount + "";
 
             // Increase the points amount by the points increased per second multiplied by the time since the last frame
             pointsAmount += pointsIncreasedPerSecond * Time.deltaTime;

@@ -20,9 +20,9 @@ public class Tile : MonoBehaviour
     //variables for diff card prices
     private float scientistPrice = 35f;
     private float soldierPrice= 20f;
-    private float wallPrice= 12f;
-    private float sniperPrice= 20f;
-    private float spikesPrice = 12f;
+    private float wallPrice= 15f;
+    private float sniperPrice= 30f;
+    private float spikesPrice = 15f;
 
     // Method to initialize the tile with a specific color
     public void Init(bool isOffset)

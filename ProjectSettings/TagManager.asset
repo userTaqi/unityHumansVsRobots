@@ -18,6 +18,7 @@ TagManager:
   - robotDog
   - gridManager
   - tile
+  - waveCount
   layers:
   - Default
   - TransparentFX

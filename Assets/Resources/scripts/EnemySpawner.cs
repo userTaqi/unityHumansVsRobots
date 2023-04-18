@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
-
     [SerializeField] GameOver script;
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private GameObject[] spawnPoints;
@@ -13,11 +13,18 @@ public class EnemySpawner : MonoBehaviour
     private int enemyPerWave = 1;
     private float timeBetweenWaves = 25f;
 
+    public Text waveText;
     private int currentWave = 0;
 
     void Start()
     {
         StartCoroutine(SpawnEnemy());
+        waveText = GameObject.FindGameObjectWithTag("waveCount").GetComponent<Text>();
+    }
+
+    void Update()
+    {
+        waveText.text = currentWave.ToString();
     }
 
     IEnumerator SpawnEnemy()
@@ -33,64 +40,61 @@ public class EnemySpawner : MonoBehaviour
                 int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
                 GameObject spawnPoint = spawnPoints[randomSpawnPointIndex];
 
-                int strengthLevel = Mathf.FloorToInt(currentWave / 2f);
-                strengthLevel = Mathf.Clamp(strengthLevel, 0, enemyPrefabs.Length - 1);
-
                 List<GameObject> availableEnemies = new List<GameObject>();
-                for (int j = 0; j <= strengthLevel; j++)
-                {
-                    if (j == 0)
-                    {
-                        availableEnemies.Add(enemyPrefabs[0]);	
-                        availableEnemies.Add(enemyPrefabs[0]);	
-                        availableEnemies.Add(enemyPrefabs[0]);	
-                        availableEnemies.Add(enemyPrefabs[0]);	
-                        availableEnemies.Add(enemyPrefabs[0]);	
-                        availableEnemies.Add(enemyPrefabs[0]);	
-                        availableEnemies.Add(enemyPrefabs[0]);	
-                        availableEnemies.Add(enemyPrefabs[0]);
-                    }
-                    else if (j == 1)
-                    {
-                        availableEnemies.Add(enemyPrefabs[1]);
-                        availableEnemies.Add(enemyPrefabs[1]);
-                        availableEnemies.Add(enemyPrefabs[2]); // add the new prefab here
-                        availableEnemies.Add(enemyPrefabs[2]);
-                    }
 
-                    else
+                if (currentWave <= 10)
+                {
+                    availableEnemies.Add(enemyPrefabs[0]);
+                    availableEnemies.Add(enemyPrefabs[0]);
+                    availableEnemies.Add(enemyPrefabs[0]);
+                    availableEnemies.Add(enemyPrefabs[0]);
+                    availableEnemies.Add(enemyPrefabs[0]);
+                    availableEnemies.Add(enemyPrefabs[0]);
+                    availableEnemies.Add(enemyPrefabs[0]);
+                    availableEnemies.Add(enemyPrefabs[0]);
+                }
+                else
+                {
+                    int strengthLevel = Mathf.FloorToInt((currentWave - 10) / 2f) + 1;
+                    strengthLevel = Mathf.Clamp(strengthLevel, 0, enemyPrefabs.Length - 1);
+
+                    for (int j = 0; j <= strengthLevel; j++)
                     {
                         availableEnemies.Add(enemyPrefabs[j]);
                     }
                 }
 
                 GameObject enemyPrefabToSpawn = availableEnemies[Random.Range(0, availableEnemies.Count)];
-                
-                if(script.gameAlive){
+
+                if (script.gameAlive)
+                {
                     GameObject enemy = Instantiate(enemyPrefabToSpawn, spawnPoint.transform.position, spawnPoint.transform.rotation);
                     Rigidbody2D enemyRigidbody = enemy.GetComponent<Rigidbody2D>();
-                    //float forceMagnitude = enemyPrefabToSpawn == enemyPrefabs[0] ? 45f : 75f;
 
-                    if (enemyPrefabToSpawn == enemyPrefabs[0]) 
+                    float forceMagnitude;
+
+                    if (enemyPrefabToSpawn == enemyPrefabs[0])
                     {
-                        enemyRigidbody.AddForce(-spawnPoint.transform.right * (40f + currentWave * 5f));
+                        forceMagnitude = 45f + currentWave * 2.5f;
                     }
-                    else if (enemyPrefabToSpawn == enemyPrefabs[1]) 
+                    else if (enemyPrefabToSpawn == enemyPrefabs[1])
                     {
-                        enemyRigidbody.AddForce(-spawnPoint.transform.right * (65f + currentWave * 5f));
+                        forceMagnitude = 65f + currentWave * 0.5F;
                     }
-                    else if (enemyPrefabToSpawn == enemyPrefabs[2]) 
+                    else
                     {
-                        enemyRigidbody.AddForce(-spawnPoint.transform.right * (90f + currentWave * 5f));
+                        forceMagnitude = 90f + currentWave * 0.5F;
                     }
+
+                    enemyRigidbody.AddForce(-spawnPoint.transform.right * forceMagnitude);
                 }
 
                 yield return new WaitForSeconds(currentSpawnInterval);
             }
 
             currentWave++;
-            enemyPerWave+=2;
-            currentSpawnInterval *= 0.80f;
+            enemyPerWave += 2;
+            currentSpawnInterval *= 0.90f;
         }
     }
 }

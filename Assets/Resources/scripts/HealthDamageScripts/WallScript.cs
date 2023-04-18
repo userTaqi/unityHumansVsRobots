@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallScript : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 150;
     public int currentHealth;
     public float damageInterval = 2f;
     public int robotDamage = 20;
